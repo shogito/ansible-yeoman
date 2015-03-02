@@ -1,0 +1,7 @@
+- hosts: all
+  vars:
+    ANSIBLE_NODEBREW_NODEBREW_USER: root
+    ANSIBLE_NODEBREW_NODEBREW_USER_HOME: /root 
+    ANSIBLE_RBENV_RUBY_VERSION: 0.11.14
+  roles:
+    ansible-nodebrew

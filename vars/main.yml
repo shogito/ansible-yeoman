@@ -1,0 +1,4 @@
+generators:
+  - generator-webapp
+  - generator-meanjs
+
