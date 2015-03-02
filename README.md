@@ -24,6 +24,9 @@ ANSIBLE_YEOMAN_YEOMAN_USER_HOME
   vars:
     ANSIBLE_YEOMAN_USER: root
     ANSIBLE_YEOMAN_USER_HOME: /root 
+    ANSIBLE_YEOMAN_GEM_PATH: .rbenv/shims/gem
+    ANSIBLE_YEOMAN_NODE_PATH: .nodebrew/current/bin
+
   roles:
     - { role: shogito.yeoman }
 ```
