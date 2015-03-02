@@ -1,5 +1,5 @@
-- name: compass$B%$%s%9%H!<%k(B
-  gem: name=compass user_install=False executable={{ ANSIBLE_YEOMAN_USER_HOME }}/.rbenv/shims/gem
+- name: compassインストール
+  gem: name=compass user_install=False executable={{ ANSIBLE_YEOMAN_USER_HOME }}/{{ ANSIBLE_YEOMAN_GEM_PATH }}
   sudo: yes
 
 - name: node path check
@@ -8,24 +8,24 @@
   sudo: yes
 
 - name: yeoman fix
-  file: src={{ ANSIBLE_YEOMAN_USER_HOME }}/.nodebrew/current/bin/node path=/usr/bin/node  state=link follow=yes
+  file: src={{ ANSIBLE_YEOMAN_USER_HOME }}/{{ ANSIBLE_YEOMAN_NODE_PATH }}/node path=/usr/bin/node  state=link follow=yes
   when: (not result.stdout)  
   sudo: yes
 
-- name: yo$B$N$?$a$K%[!<%`%G%#%l%/%H%j$K(Bg+rwx(root$B%f!<%6<B9T;~$N(Bfix)
+- name: yoのためにホームディレクトリにg+rwx(rootユーザ実行時のfix)
   file: path={{ ANSIBLE_YEOMAN_USER_HOME }} mode=g+rwx
   when: (ANSIBLE_YEOMAN_USER == "root")
   sudo: yes
 
-- name: yeoman$B%$%s%9%H!<%k(B
-  npm: name={{item.pkg}} global=yes executable={{ ANSIBLE_YEOMAN_USER_HOME }}/.nodebrew/current/bin/npm
+- name: yeomanインストール
+  npm: name={{item.pkg}} global=yes executable={{ ANSIBLE_YEOMAN_USER_HOME }}/{{ ANSIBLE_YEOMAN_NODE_PATH }}/npm
   with_items:
     - pkg: yo
     - pkg: grunt-cli
     - pkg: bower
   sudo: yes
 
-- name: generator$B%$%s%9%H!<%k(B
-  npm: name={{item}} global=yes executable={{ ANSIBLE_YEOMAN_USER_HOME }}/.nodebrew/current/bin/npm
+- name: generatorインストール
+  npm: name={{item}} global=yes executable={{ ANSIBLE_YEOMAN_USER_HOME }}/{{ ANSIBLE_YEOMAN_NODE_PATH }}/npm
   with_items: generators
   sudo: yes
