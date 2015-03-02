@@ -1,33 +1,31 @@
-# Ansible Role: ansible-nodebrew
+# Ansible Role: ansible-yeoman
 
 [Build Status]
 [wercker status]
 ### 要求
-none
+* node
+* npm
+* ruby
+* gem
 
 ### Role Variables
-nodebrewをインストールするユーザ
+yeomanをインストールするユーザ
 ```
-ANSIBLE_NODEBREW_NODEBREW_USER
+ANSIBLE_YEOMAN_YEOMAN_USER
 ```
-nodebrewをインストールするロケーション
+yeomanをインストールするロケーション
 ```
-ANSIBLE_NODEBREW_NODEBREW_USER_HOME
-```
-nodebrewでインストールするNode Version
-```
-ANSIBLE_NODEBREW_NODE_VERSION
+ANSIBLE_YEOMAN_YEOMAN_USER_HOME
 ```
 
 ### Example Playbook
 ```
 - hosts: all
   vars:
-    ANSIBLE_NODEBREW_NODEBREW_USER: root
-    ANSIBLE_NODEBREW_NODEBREW_USER_HOME: /root 
-    ANSIBLE_RBENV_RUBY_VERSION: 0.11.14
+    ANSIBLE_YEOMAN_USER: root
+    ANSIBLE_YEOMAN_USER_HOME: /root 
   roles:
-    - { role: shogito.nodebrew }
+    - { role: shogito.yeoman }
 ```
 
 ### License
