@@ -1,5 +1,5 @@
 #!/bin/bash
-cd /ansible-nodebrew
+cd /ansible-yeoman
 
 cat <<EOF > ansible.cfg
 [defaults]

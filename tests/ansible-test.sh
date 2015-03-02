@@ -1,5 +1,5 @@
 #!/bin/bash
-cd /ansible-rbenv
+cd /ansible-yeoman
 
 cat <<EOF > ansible.cfg
 [defaults]
